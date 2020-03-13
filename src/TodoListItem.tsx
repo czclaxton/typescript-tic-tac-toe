@@ -1,6 +1,9 @@
 import React from "react";
 import "./TodoListItem.css";
 
+// Semantic UI
+import { List } from "semantic-ui-react";
+
 interface TodoListItemProps {
   todo: Todo;
   toggleTodo: ToggleTodo;
@@ -11,15 +14,15 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
   toggleTodo
 }) => {
   return (
-    <li>
-      <label className={todo.complete ? "complete" : undefined}>
-        <input
-          type="checkbox"
-          checked={todo.complete}
-          onChange={() => toggleTodo(todo)}
-        />
+    <List.Item style={{ padding: "10px" }}>
+      <List.Icon
+        color={todo.complete ? "green" : "red"}
+        name={todo.complete ? "checkmark" : "close"}
+        onClick={() => toggleTodo(todo)}
+      />
+      <List.Content className={todo.complete ? "complete" : undefined}>
         {todo.text}
-      </label>
-    </li>
+      </List.Content>
+    </List.Item>
   );
 };
