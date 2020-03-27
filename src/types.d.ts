@@ -1,3 +1,5 @@
+// Types definitions
+
 type Todo = {
   text: string;
   complete: boolean;
